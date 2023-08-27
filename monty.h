@@ -1,8 +1,13 @@
 #ifndef MONTY_H
 #define MONTY_H
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include <string.h>
+#include <malloc.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -10,7 +15,7 @@
  * @next: points to the next element of the stack (or queue)
  *
  * Description: doubly linked list node structure
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
 typedef struct stack_s
 {
@@ -24,11 +29,26 @@ typedef struct stack_s
  * @f: function to handle the opcode
  *
  * Description: opcode and its function
- * for stack, queues, LIFO, FIFO Holberton project
+ * for stack, queues, LIFO, FIFO
  */
 typedef struct instruction_s
 {
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+/**
+ * struct func - struct for specifier to printer
+ * @t: character to compare
+ * @f: function to handle printing
+ */
+typedef struct func
+{
+	char *spec;
+	size_t (*func)(void);
+} mi_funct;
+int _strcmp(char *s1, char *s2);
+stack_t *add_to_stack(const int n);
+size_t print_all(void);
+void* _realloc(void *ptr, size_t size);
+extern stack_t *head;
 #endif

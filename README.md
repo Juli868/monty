@@ -1,1 +1,1 @@
-All About 0x19. C - Stacks, Queues - LIFO, FIFO
+This rep cntains codes that my partner and I did recreating interpreter of Monty scripting language
